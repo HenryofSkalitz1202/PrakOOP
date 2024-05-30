@@ -1,0 +1,71 @@
+    Pembuatan Objek:
+    Pertama-tama, di dalam fungsi main, dua objek A dibuat dengan menggunakan constructor A(char d). Ketika objek dibuat, constructor dipanggil untuk menginisialisasi objek tersebut dengan karakter yang diberikan. Jadi, obj1 akan memiliki karakter '1' dan obj2 akan memiliki karakter '2'. Saat inisialisasi, pesan "cons" dicetak yang menandakan bahwa constructor telah dipanggil.
+
+    Pemanggilan Copy Constructor:
+    Kemudian, objek obj3 dibuat dan diinisialisasi dengan menggunakan copy constructor A(const A&). Ini terjadi ketika objek obj1 disalin ke obj3. Oleh karena itu, nilai karakter dari obj1 disalin ke obj3, dan pesan "ccons" dicetak untuk menunjukkan bahwa copy constructor telah dipanggil.
+
+    Pemanggilan Copy Assignment Operator:
+    Setelahnya, pada obj3 = obj2, copy assignment operator A& operator=(const A&) dipanggil. Ini terjadi ketika nilai dari obj2 disalin ke obj3. Pesan "cassign" dicetak untuk menandakan bahwa copy assignment operator telah dipanggil.
+
+    Pemanggilan Fungsi show():
+    Setelah itu, fungsi show() dipanggil pada objek obj3, yang mencetak nilai karakter dari obj3.
+
+    Penghancuran Objek:
+    Ketika program mencapai akhir, objek-objek yang dibuat akan keluar dari lingkup. Saat ini, destructor dipanggil untuk setiap objek, yang mencetak pesan "dest" diikuti oleh karakter yang sesuai. Dalam kasus ini, terdapat tiga pemanggilan destructor: pertama untuk objek obj3, kemudian untuk obj2, dan terakhir untuk obj1.
+Jadi, urutan pesan keluaran yang dihasilkan sesuai dengan urutan pemanggilan konstruktor, copy constructor, copy assignment operator, dan destructor pada setiap objek. Itulah bagaimana program ini bekerja secara keseluruhan.
+
+================================
+Dalam implementasi tersebut:
+    Konstruktor default Item::Item() menginisialisasi stock, price, dan sold dengan nilai 0, sementara serialNum diinisialisasi dengan nilai totalItems + 1.
+    Konstruktor Item::Item(int stock, int price) menginisialisasi atribut sesuai dengan argumen yang diberikan, dan juga menetapkan serialNum dengan nilai totalItems + 1.
+    Copy constructor Item::Item(const Item& other) menyalin semua atribut dari objek other, dan juga menetapkan serialNum dengan nilai totalItems + 1.
+    Destruktor tidak melakukan apa pun karena tidak ada sumber daya dinamis yang dialokasikan.
+    Method Item::getSerialNum(), Item::getSold(), dan Item::getPrice() mengembalikan nilai atribut masing-masing.
+    Method Item::addStock() menambahkan stok item dengan jumlah tertentu, asalkan jumlahnya positif.
+    Method Item::sell() menjual item dengan jumlah tertentu. Jika stok tidak mencukupi, item terjual hanya sampai stok habis.
+    Method Item::setPrice() mengubah harga barang.
+
+==============================
+Dalam implementasi tersebut:
+    Konstruktor default SpacingGuildShip::SpacingGuildShip() menginisialisasi atribut dengan nilai default yang diberikan, sementara serialNum diinisialisasi dengan nilai producedShips + 1.
+    Konstruktor SpacingGuildShip::SpacingGuildShip(int maxPassengerCap, int guildNavigatorCount, int spiceStock) menginisialisasi atribut sesuai dengan argumen yang diberikan, dan juga menetapkan serialNum dengan nilai producedShips + 1.
+    Copy constructor SpacingGuildShip::SpacingGuildShip(const SpacingGuildShip& other) menyalin semua atribut dari objek other, dan juga menetapkan serialNum dengan nilai producedShips + 1.
+    Destruktor tidak melakukan apa pun karena tidak ada sumber daya dinamis yang dialokasikan.
+    Method-method lainnya mengimplementasikan fungsionalitas sesuai dengan deskripsi dalam SpacingGuildShip.hpp.
+
+================================
+Dalam implementasi ini:
+    Konstruktor default Weed::Weed() menginisialisasi many dengan nilai 1.
+    Konstruktor Weed::Weed(int n) menginisialisasi many dengan nilai n.
+    Copy constructor Weed::Weed(const Weed &other) menyalin nilai many dari objek other.
+    Destruktor tidak melakukan apa pun karena tidak ada sumber daya dinamis yang dialokasikan.
+    Method Weed::step() mencetak "kresek..." sebanyak many kali, diakhiri dengan newline.
+
+=======================
+Berikut adalah penjelasan singkat tentang setiap bagian dari BigNumber.cpp:
+
+    Konstruktor BigNumber(): Konstruktor default yang mengalokasikan memori untuk array digit dan menginisialisasi semua digit menjadi 0.
+
+    Konstruktor BigNumber(int number): Konstruktor yang menginisialisasi BigNumber dengan bilangan bulat. Ini mengubah bilangan bulat menjadi array digit, menyimpan setiap digit dalam array digit.
+
+    Konstruktor BigNumber(std::string aVeryBigNumber): Konstruktor yang menginisialisasi BigNumber dengan bilangan yang sangat besar dalam bentuk string. Ini juga mengubah string ke array digit.
+
+    Konstruktor Copy BigNumber(const BigNumber& bn): Konstruktor copy yang menginisialisasi BigNumber baru dengan nilai dari BigNumber lain.
+
+    Akses ke max_digit: Inisialisasi max_digit sebagai variabel statis konstan di luar fungsi-fungsi anggota kelas.
+
+    Fungsi setDigit(int i, int digit): Mengatur nilai digit pada indeks tertentu.
+
+    Operator Overloading operator[]: Mendefinisikan operator overloading [] sebagai getter dan setter untuk mengakses digit pada indeks tertentu.
+
+    Destruktor ~BigNumber(): Menghapus memori yang dialokasikan untuk array digit.
+
+    Operator Overloading ==: Membandingkan dua BigNumber digit per digit. Jika semua digit sama, kembali true, jika tidak, kembali false.
+
+    Operator Overloading <: Membandingkan dua BigNumber digit per digit dari digit terbesar ke digit terkecil. Jika angka kiri lebih kecil, kembali true, jika tidak, kembali false.
+
+    Operator Overloading >: Membandingkan dua BigNumber digit per digit dari digit terbesar ke digit terkecil. Jika angka kiri lebih besar, kembali true, jika tidak, kembali false.
+
+    Operator Overloading +: Menambahkan dua BigNumber digit per digit. Mengurus pembawa jika ada.
+
+File ini berfungsi sebagai inti dari implementasi kelas BigNumber, yang memungkinkan untuk manipulasi dan operasi dengan angka yang sangat besar.
